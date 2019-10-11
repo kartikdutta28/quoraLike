@@ -1,4 +1,4 @@
-package com.example.example.quora.repositories;
+package com.example.example.quora.repository;
 
 import com.example.example.quora.models.Comments;
 

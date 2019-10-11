@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.example.example.quora.repositories.QuestionRepository;
+import com.example.example.quora.repository.QuestionRepository;
 import com.example.example.quora.models.Questions;
 
 @RestController
@@ -27,6 +27,11 @@ public class QuestionController {
     @RequestMapping("questions/{id}")
     public Questions getQuestionById(@PathVariable("id") ObjectId id) {
         return repository.findBy_id(id);
+    }
+
+    @RequestMapping("questions/getByUpVotes/{upVotes}")
+    public List<Questions> getQuestionsByUpVotes(@PathVariable("upVotes") Integer upVotes) {
+        return repository.findByUpVotes(upVotes);
     }
 
     @RequestMapping(method = RequestMethod.POST, value = "/questions")
